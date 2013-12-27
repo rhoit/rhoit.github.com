@@ -1,0 +1,10 @@
+*.tar.gz
+.DS_Store
+.sass-cache
+.svn
+etc
+log/*.log
+node_modules/
+old
+test
+tmp/**
