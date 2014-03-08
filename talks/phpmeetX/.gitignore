@@ -1,0 +1,14 @@
+*.tar.gz
+*_
+.DS_Store
+.sass-cache
+.svn
+_*
+etc
+log/*.log
+node_modules/
+old
+test
+tmp/**
+nbproject
+/nbproject/private/
