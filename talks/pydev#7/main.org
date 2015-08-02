@@ -6,7 +6,7 @@
 
 [[./ninja.gif]]
 
-*DISCLAMER*: DON'T TRY IT IN +HOME+ PYTHON 2
+*DISCLAIMER*: DON'T TRY IT IN +HOME+ PYTHON 2
 
 * how do you turn it on
 ** Number of Digits
@@ -60,7 +60,7 @@
     : [12, 13, 14, 15, 16, 17, 18, 19, 23, 24, 25, 26, 27, 28, 29, 34, 35, 36, 37, 38, 39, 45, 46, 47, 48, 49, 56, 57, 58, 59, 67, 68, 69, 78, 79, 89]
     : 36
 
-** Number Combitation
+** Number Combination
    There is a set of 10 numbers. Five numbers are selected from the
    set and added together.  {1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }
 
@@ -142,7 +142,7 @@
 * map
   घेरैले गर्ने तरिका
 
-  #+name navie way
+  #+name naive way
   #+begin_src python :results output
     square_lst = []
     for i in range(10):
@@ -302,7 +302,7 @@
    : 24
    : 24
 
-** ceasor cipher
+** Caesar Cipher
    #+begin_src python :results output
    from functools import reduce
 
