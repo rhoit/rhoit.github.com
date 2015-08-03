@@ -1,17 +1,19 @@
 #+TITLE: Program लेख्न अल्छि लाग्यो
 #+DATE: Monday, Jul 27 2015
 #+OPTIONS: toc:0
-
+#+DESCRIPTION: python meet #7 on Sun, 02 Aug 2015
 #+STARTUP: content inlineimages
 
 [[./ninja.gif]]
 
 *DISCLAIMER*: DON'T TRY IT IN +HOME+ PYTHON 2
 
-* how do you turn it on
+* how do you turn this on
 ** Number of Digits
+   #+begin_verse
    The pages of a book are consecutively numbered from 1 through 999.
    How many digits are there in this numbering?
+   #+end_verse
 
    #+begin_src python +n :results output
      letters = 0
@@ -33,8 +35,10 @@
     : 2889
 
 ** Position of the Digits
+   #+begin_verse
    How many 2-digit numbers have a tens digit that is smaller than the
    units digit?
+   #+end_verse
 
    #+begin_src python :results output
      numbers = []
@@ -61,11 +65,13 @@
     : 36
 
 ** Number Combination
-   There is a set of 10 numbers. Five numbers are selected from the
-   set and added together.  {1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }
-
+   #+begin_verse
+   There is a set of 10 numbers.
+       {1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }
+   Five numbers are selected from the set and added together.
    These two sums are then multiplied.
    Find the maximum possible product of the multiplication.
+   #+end_verse
 
    #+begin_src python :results output
      from itertools import combinations
@@ -96,11 +102,9 @@
    : 225
 
 ** Thanks to
-   माथिका सबै प्रश्न quiznepal का हुन्
+   माथिका सबै प्रश्न [[https://www.facebook.com/quizdaily.nepal][quiznepal]] का हुन्
 
    [[./quiznepal.jpg]]
-
-   facebook मा https://www.facebook.com/quizdaily.nepal
 
 * λ func
   #+begin_src python :results output
@@ -155,7 +159,7 @@
   #+RESULTS:
   : [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
-  अब map प्रयोग गर्दा
+  अब [[https://www.youtube.com/watch?v=8gO_lxThc1M][map]] प्रयोग गर्दा
 
   #+begin_src python :results output
     def square(x):
@@ -193,8 +197,7 @@
      print(f_10)
 
      # अब some property fibonacci
-     f_iter = iter(f_10)
-     ratios = [ "%2.3f"%(m/n) for n, m in zip(f_iter, f_iter) ]
+     ratios = [ "%2.3f"%(n/m) for m, n in zip(f_10[::2], f_10[1::2]) ]
      print(ratios)
    #+end_src
 
@@ -326,31 +329,38 @@
 
     binary = [ str(bin(i))[2:] for i in range(10) ]
     print(binary)
-    print([ reduce(lambda y, x: int(x) + 2 * int(y), i, 0) for i in binary ])
-    print([ (oct(i), reduce(lambda y, x: int(x) + 8 * int(y), str(oct(i))[2:], 0)) for i in range(100, 105) ])
-    print([ (hex(i), reduce(lambda y, x: int(x, 16) + 16 * int(y), str(hex(i))[2:], 0)) for i in range(120, 125) ])
+    print([ reduce(lambda y, x: int(x) + 2 * int(y), b, 0) for b in binary ])
   #+end_src
 
   #+RESULTS:
   : ['0', '1', '10', '11', '100', '101', '110', '111', '1000', '1001']
   : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  : [('0o144', 100), ('0o145', 101), ('0o146', 102), ('0o147', 103), ('0o150', 104)]
-  : [('0x78', 120), ('0x79', 121), ('0x7a', 122), ('0x7b', 123), ('0x7c', 124)]
 
-** hexundumpyfy
+** dict comprehensions
    #+begin_src python :results output
-     hexdump = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
-     a = iter(hexdump)
-     print(bytes([ int(i+j, 16) for i, j in zip(a, a)]))
+    from functools import reduce
+
+    octal = [ str(oct(i))[2:] for i in range(5, 15) ]
+    print(octal)
+    my_oct_map = { o : reduce(lambda y, x: int(x) + 8 * int(y), o, 0) for o in octal }
+    print(my_oct_map['10'])
+
+    hexa = [ str(hex(i))[2:] for i in range(8, 18) ]
+    print(hexa)
+    my_hex_map = { h: reduce(lambda y, x: int(x, 16) + 16 * int(y), h, 0) for h in hexa }
+    print(my_hex_map['d'])
    #+end_src
 
    #+RESULTS:
-   : b"I'm killing your brain like a poisonous mushroom"
+   : ['5', '6', '7', '10', '11', '12', '13', '14', '15', '16']
+   : 8
+   : ['8', '9', 'a', 'b', 'c', 'd', 'e', 'f', '10', '11']
+   : 13
 
-** dict comprehensions
+   padding the binary
 
    #+begin_src python :results output
-     binary = { v: str(bin(v))[2:] for v in range(8) }
+     binary = { i: str(bin(v))[2:] for i in range(8) }
      print(type(binary))
      print(binary[4])
      print(binary)
@@ -364,9 +374,32 @@
    : {0: '0', 1: '1', 2: '10', 3: '11', 4: '100', 5: '101', 6: '110', 7: '111'}
    : {0: '000', 1: '001', 2: '010', 3: '011', 4: '100', 5: '101', 6: '110', 7: '111'}
 
+** hexundumpify
+   #+begin_src python :results output
+     hexdump = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
+     a = iter(hexdump)
+     print(bytes([ int(i+j, 16) for i, j in zip(a, a)]))
+   #+end_src
+
+   #+RESULTS:
+   : b"I'm killing your brain like a poisonous mushroom"
+
+   source [[http://cryptopals.com/sets/1/challenges/1/][cryptopal]]
+
 ** lol
-   list of list, how does comprehensions looks :), try yourself.
+   *List Of List*, how does comprehensions looks :), try yourself.
 
 ** In tHE enD
 
    *NOBODY HAVE TIME TO READ YOUR CODE, SO MAKE IT SHORT!*
+
+*** लास्टमा
+
+    try solving this! [[https://www.facebook.com/quizdaily.nepal][quiznepal]] लाई घेरै घेरै धन्यवाद
+
+    #+begin_verse
+    I need 1 + 9 + 25 = 35 cubes to build a pyramid with a height of 3 cubes.
+    Estimate the number of cubes for a pyramid with a height of 30 cubes.
+    #+end_verse
+
+    [[./pyramid.jpg]]
