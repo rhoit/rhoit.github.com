@@ -268,6 +268,7 @@
 
   #+begin_src python :results output
     from functools import reduce
+
     range_sum = 0
     for i in range(10):
         range_sum += i
@@ -280,6 +281,7 @@
 
   #+begin_src python :results output
     from functools import reduce
+
     my_sum = reduce(lambda x, y: x + y, range(10))
     print(type(my_sum))
     print(my_sum)
