@@ -75,6 +75,7 @@
 
    #+begin_src python :results output
      from itertools import combinations
+
      A = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
      s = sum(A)
      max_product = float("-inf")
@@ -93,6 +94,7 @@
 *** अल्छि लागेको बेला
    #+begin_src python :results output
      from itertools import combinations
+
      A = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
      s = sum(A)
      print(max((s - sum(c)) * sum(c) for c in combinations(A, 5)))
@@ -298,13 +300,21 @@
      from functools import reduce
 
      print(reduce(lambda x, y: x * y, range(1,5)))
-
-     import operator
-     print(reduce(operator.mul, range(1, 5)))
    #+end_src
 
    #+RESULTS:
    : 24
+
+   when you are lazy to write lambda
+
+   #+begin_src python :results output
+     from functools import reduce
+     import operator
+
+     print(reduce(operator.mul, range(1, 5)))
+   #+end_src
+
+   #+RESULTS:
    : 24
 
 ** Caesar Cipher
