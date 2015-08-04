@@ -67,9 +67,12 @@
 ** Number Combination
    #+begin_verse
    There is a set of 10 numbers.
+
        {1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }
+
    Five numbers are selected from the set and added together.
    These two sums are then multiplied.
+
    Find the maximum possible product of the multiplication.
    #+end_verse
 
@@ -104,6 +107,7 @@
    : 225
 
 ** Thanks to
+
    माथिका सबै प्रश्न [[https://www.facebook.com/quizdaily.nepal][quiznepal]] का हुन्
 
    [[./quiznepal.jpg]]
@@ -120,6 +124,7 @@
   : 4
 
   अब map प्रयोग गर्दा
+
   #+begin_src python :results output
     lambda_func = lambda x: print(2 * x)
     lambda_func(4)
@@ -146,6 +151,7 @@
    : 24
 
 * map
+
   घेरैले गर्ने तरिका
 
   #+name naive way
@@ -217,6 +223,7 @@
    : ['art', 'music', 'design']
 
 * filter
+
   *map* मा जस्तै
 
   #+begin_src python :results output
@@ -265,7 +272,9 @@
    #+RESULTS:
    : a a a a a
    : ['a0', 'a1']
+
 * reduce
+
   जुन सबै ठाउँमा छ तर कतै पनि छैन
 
   #+begin_src python :results output
@@ -399,6 +408,7 @@
    source [[http://cryptopals.com/sets/1/challenges/1/][cryptopal]]
 
 ** lol
+
    *List Of List*, how does comprehensions looks :), try yourself.
 
 ** In tHE enD
