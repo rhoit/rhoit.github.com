@@ -79,7 +79,7 @@
    #+begin_src python :results output
      from itertools import combinations
 
-     A = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+     A = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
      s = sum(A)
      max_product = float("-inf")
      for c in combinations(A, 5):
@@ -98,7 +98,7 @@
    #+begin_src python :results output
      from itertools import combinations
 
-     A = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+     A = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
      s = sum(A)
      print(max((s - sum(c)) * sum(c) for c in combinations(A, 5)))
    #+end_src
@@ -139,7 +139,7 @@
 
 ** अत्ति अल्छि लागेको बेला!
    #+begin_src python :results output
-     factorial = lambda n: 1 if n == 1 else n*factorial(n-1)
+     factorial = lambda n: 1 if n == 1 else n * factorial(n-1)
      print(factorial(2))
      print(factorial(3))
      print(factorial(4))
@@ -178,7 +178,7 @@
     print(type(square_lst))
     print(list(square_lst))
 
-    square_lst1 = map(lambda x: x * x, range(5,10))
+    square_lst1 = map(lambda x: x * x, range(5, 10))
     print(list(square_lst1))
   #+end_src
 
@@ -425,3 +425,7 @@
     #+end_verse
 
     [[./pyramid.jpg]]
+
+# Local Variables:
+# buffer-read-only: t
+# End:
