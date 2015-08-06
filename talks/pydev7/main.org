@@ -68,7 +68,7 @@
    #+begin_verse
    There is a set of 10 numbers.
 
-       {1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }
+       {1, 1, 2, 2, 3, 3, 4, 4, 5, 5}
 
    Five numbers are selected from the set and added together.
    These two sums are then multiplied.
