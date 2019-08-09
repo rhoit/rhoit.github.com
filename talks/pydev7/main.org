@@ -206,8 +206,8 @@
 
    #+begin_src python :results output
      fibonacci = lambda n: 1 if n < 2 else fibonacci(n-2) + fibonacci(n-1)
-     f_10 = map(fibonnaci, range(8))
-     print(list(f_10))
+     f = map(fibonnaci, range(8))
+     print(list(f))
    #+end_src
 
    #+RESULTS:
@@ -216,17 +216,17 @@
 ** aegis
    #+begin_src python :results output
      fibonacci = lambda n: 1 if n < 2 else fibonacci(n-2) + fibonacci(n-1)
-     f_10 = [ fibonacci(n) for n in range(0, 20) ]
-     print(f_10)
+     f = [ fibonacci(n) for n in range(0, 15) ]
+     print(f)
 
      # अब some property fibonacci
-     ratios = [ "%2.3f"%(n/m) for m, n in zip(f_10[::2], f_10[1::2]) ]
+     ratios = [ "%2.3f"%(n/m) for m, n in zip(f[::2], f[1::2]) ]
      print(ratios)
    #+end_src
 
    #+RESULTS:
-   : [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
-   : ['1.000', '1.500', '1.600', '1.615', '1.618', '1.618', '1.618', '1.618', '1.618', '1.618']
+   : [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+   : ['1.000', '1.500', '1.600', '1.615', '1.618', '1.618', '1.618']
 
    Similarly, in strings
    #+begin_src python :results output
@@ -293,8 +293,6 @@
   जुन सबै ठाउँमा छ तर कतै पनि छैन
 
   #+begin_src python :results output
-    from functools import reduce
-
     range_sum = 0
     for i in range(10):
         range_sum += i
@@ -416,9 +414,6 @@
      a = iter(hexdump)
      print(bytes([ int(i+j, 16) for i, j in zip(a, a)]))
    #+end_src
-
-   #+RESULTS:
-   : b"I'm killing your brain like a poisonous mushroom"
 
    source [[http://cryptopals.com/sets/1/challenges/1/][cryptopal]]
 
